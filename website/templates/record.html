@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="col-md-6 offset-md-3">
+    <h2 class="card-title" style="text-align: center;">{{customer_record.first_name|title}} {{customer_record.last_name|title}}</h2>
+    <br>
+    <div class="card text-center mb-3" style="width: 24rem; margin: 0 auto; font-weight: 500; line-height: 1.8;">
+        <div class="card-body">
+        
+           Name: {{customer_record.first_name}}
+            {{customer_record.last_name}}<br>
+            Email: {{customer_record.email}}<br>
+            Phone: {{customer_record.phone}}<br>
+            Address: {{customer_record.address}}<br>
+            City: {{customer_record.city}},
+            State: {{customer_record.state}}
+            Zip Code: {{customer_record.zipcode}}<br>
+            Date Created: {{customer_record.created_at}}<br><br>
+            
+            <a href="{% url 'home' %}" class="btn btn-primary">Go Back</a>
+            <a href="{% url 'update_record' customer_record.id %}" class="btn btn-warning">Update</a>
+            <a href="{% url 'delete_record' customer_record.id %}" class="btn btn-danger">Delete</a>
+        </div>
+    </div>
+</div>
+ 
+
+{% endblock %}
